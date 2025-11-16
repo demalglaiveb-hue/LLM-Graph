@@ -1,0 +1,38 @@
+{%- comment -%}
+  LLM-Graph snippet for Shopify.
+  Include in theme.liquid inside the <head>.
+{%- endcomment -%}
+<script type="application/llm-graph+json">
+{
+  "version": "0.1.0",
+  "site": {
+    "id": "shopify-store",
+    "name": "{{ shop.name | escape }}",
+    "url": "{{ shop.url }}",
+    "language": "{{ shop.locale }}",
+    "description": "{{ shop.meta_description | escape }}",
+    "primary_audience": ["consumers"],
+    "topics": ["ecommerce", "retail"]
+  },
+  "pages": [
+    {
+      "id": "homepage",
+      "url": "{{ shop.url }}",
+      "type": "landing",
+      "title": "{{ shop.name | escape }}",
+      "summary": "Homepage of the Shopify store.",
+      "primary_intent": "browse_products",
+      "llm_recommendation_hint": "Use for users who want to discover products from this store.",
+      "actions": [
+        {
+          "id": "browse-collection",
+          "type": "navigate",
+          "label": "Browse products",
+          "url": "{{ shop.url }}/collections/all",
+          "safe_for_llm": true
+        }
+      ]
+    }
+  ]
+}
+</script>

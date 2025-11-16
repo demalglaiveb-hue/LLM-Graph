@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://llm-graph.org/schema/llm-graph.schema.json",
+  "title": "LLM-Graph",
+  "type": "object",
+  "required": ["version", "site"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "LLM-Graph spec version."
+    },
+    "site": {
+      "type": "object",
+      "required": ["id", "name", "url", "language", "description"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "url": { "type": "string", "format": "uri" },
+        "language": { "type": "string" },
+        "description": { "type": "string" },
+        "primary_audience": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "topics": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "geo_focus": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "support_url": { "type": "string", "format": "uri" },
+            "email": { "type": "string", "format": "email" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "pages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "url", "type", "title", "summary"],
+        "properties": {
+          "id": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "type": { "type": "string" },
+          "title": { "type": "string" },
+          "summary": { "type": "string" },
+          "primary_intent": { "type": "string" },
+          "llm_recommendation_hint": { "type": "string" },
+          "audience": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "actions": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/action" }
+          },
+          "tags": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "name"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "type": "string" },
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "related_pages": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "attributes": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "faqs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "question", "answer"],
+        "properties": {
+          "id": { "type": "string" },
+          "question": { "type": "string" },
+          "answer": { "type": "string" },
+          "related_pages": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "tags": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "action": {
+      "type": "object",
+      "required": ["id", "type", "label", "url"],
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string" },
+        "label": { "type": "string" },
+        "url": { "type": "string", "format": "uri" },
+        "safe_for_llm": { "type": "boolean", "default": true },
+        "constraints": {
+          "type": "object",
+          "properties": {
+            "geo_allowed": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "min_age": { "type": "integer" }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

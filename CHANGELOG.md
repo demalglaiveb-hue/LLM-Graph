@@ -1,7 +1,9 @@
 # Changelog
 
 ## v0.2.0 — Draft
-- Added multi-profiles  
-- Added schema v0.2  
-- Added examples (Next.js, Shopify, WordPress)  
-- Added snippet generator  
+
+- Defined four profiles: Web, Document, Product, App.
+- Added JSON Schemas for each profile.
+- Added examples for Next.js, Shopify, WordPress, and JSON-only examples
+  for Document, Product and App.
+- Introduced governance and roadmap documents.

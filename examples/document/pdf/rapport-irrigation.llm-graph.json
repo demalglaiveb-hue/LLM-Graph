@@ -1,0 +1,29 @@
+{
+  "version": "0.2.0",
+  "profile": "document",
+  "document": {
+    "title": "Rapport d'irrigation 2025",
+    "author": "GAEC du Mas Rondole",
+    "date": "2025-01-15",
+    "language": "fr",
+    "summary": "Rapport technique décrivant un projet d'irrigation collective.",
+    "topics": [
+      "irrigation",
+      "eau",
+      "agriculture"
+    ]
+  },
+  "sections": [
+    {
+      "id": "intro",
+      "title": "Introduction",
+      "level": 1,
+      "content": "Ce rapport présente le contexte, les objectifs et la méthodologie du projet d'irrigation.",
+      "keywords": [
+        "contexte",
+        "objectifs",
+        "méthodologie"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "version": "0.2.0",
+  "profile": "document",
+  "document": {
+    "title": "Contrat type de prestation",
+    "author": "Exemple",
+    "date": "2025-01-01",
+    "language": "fr",
+    "summary": "Contrat type pour une prestation de service.",
+    "topics": [
+      "contrat",
+      "juridique",
+      "service"
+    ]
+  },
+  "sections": [
+    {
+      "id": "objet",
+      "title": "Objet du contrat",
+      "level": 1,
+      "content": "Le présent contrat a pour objet de définir les conditions de la prestation de service.",
+      "keywords": [
+        "objet",
+        "prestataire",
+        "client"
+      ]
+    }
+  ]
+}
